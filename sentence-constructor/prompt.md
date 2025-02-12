@@ -21,7 +21,7 @@ Instructions:
 Student input:
 
 Honey i left my keys at home again, would you mind picking them up for me on the way back from work?
-
+Is there enough food at home or do i need to go shopping?
 ```
 
 # Examples
@@ -63,3 +63,7 @@ Honey i left my keys at home again, would you mind picking them up for me on the
     </example>
 </examples>
 ```
+# ToDo
+- create more examples
+- compare more models
+- create an architecture diagram
