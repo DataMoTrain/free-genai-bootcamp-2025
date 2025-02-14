@@ -18,6 +18,15 @@ public class WordGroups {
     @JoinColumn(name = "group_id", nullable = false)
     private Groups group;
 
+    //Constructor
+    public WordGroups() {}
+
+    public WordGroups(Words word, Groups group) {
+        this.word = word;
+        this.group = group;
+    }
+
+    
     // Getters and Setters
     public Integer getId() {
         return id;

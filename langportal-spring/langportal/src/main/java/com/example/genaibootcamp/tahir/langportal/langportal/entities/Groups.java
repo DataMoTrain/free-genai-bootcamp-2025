@@ -13,13 +13,23 @@ public class Groups {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "words_count", nullable = false)
+    private Integer wordsCount;
+
+
      // Default constructor
      public Groups() {}
 
      // Constructor with name parameter
-     public Groups(String name) {
+     public Groups(String name, Integer wordsCount) {
          this.name = name;
+         this.wordsCount = wordsCount;
      }
+
+     public Groups(String name) {
+        this.name = name;
+        this.wordsCount = 0;
+    }
 
     // Getters and Setters
     public Integer getId() {
