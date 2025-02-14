@@ -1,44 +1,26 @@
-package com.example.genaibootcamp.tahir.langportal.langportal.entities;
+package com.example.genaibootcamp.tahir.langportal.langportal.dto;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "study_activities")
-public class StudyActivities {
+public class StudyActivityDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "url", nullable = false)
     private String url;
-
-    @Column(name = "preview_url")
+    
+    @JsonProperty("preview_url")
     private String previewUrl;
 
     // Default constructor
-    public StudyActivities() {}
+    public StudyActivityDTO() {}
 
     // Constructor with parameters
-    public StudyActivities(String name, String url, String previewUrl) {
+    public StudyActivityDTO(String name, String url, String previewUrl) {
         this.name = name;
         this.url = url;
         this.previewUrl = previewUrl;
     }
 
     // Getters and Setters
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -62,5 +44,4 @@ public class StudyActivities {
     public void setPreviewUrl(String previewUrl) {
         this.previewUrl = previewUrl;
     }
-
 }

@@ -19,11 +19,22 @@ public class WordReviewItems {
     @JoinColumn(name = "study_session_id", nullable = false)
     private StudySessions studySession;
 
-    @Column(name = "result", nullable = false)
-    private Boolean result;
+    @Column(name = "correct", nullable = false)
+    private Boolean correct;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
+
+    // Default constructor
+    public WordReviewItems() {}
+
+    // Constructor with parameters
+    public WordReviewItems(Words word, StudySessions studySession, Boolean correct, LocalDateTime createdAt) {
+        this.word = word;
+        this.studySession = studySession;
+        this.correct = correct;
+        this.createdAt = createdAt;
+    }
 
     // Getters and Setters
     public Integer getId() {
@@ -50,12 +61,12 @@ public class WordReviewItems {
         this.studySession = studySession;
     }
 
-    public Boolean getResult() {
-        return result;
+    public Boolean getCorrect() {
+        return correct;
     }
 
-    @ManyToOne    public void setResult(Boolean result) {
-        this.result = result;
+    public void setCorrect(Boolean correct) {
+        this.correct = correct;
     }
 
     public LocalDateTime getCreatedAt() {

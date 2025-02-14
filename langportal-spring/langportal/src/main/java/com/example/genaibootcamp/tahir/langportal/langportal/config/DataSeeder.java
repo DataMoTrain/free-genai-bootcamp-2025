@@ -8,6 +8,7 @@ import org.springframework.core.annotation.Order;
 import com.example.genaibootcamp.tahir.langportal.langportal.entities.Groups;
 import com.example.genaibootcamp.tahir.langportal.langportal.repositories.GroupsRepository;
 import com.example.genaibootcamp.tahir.langportal.langportal.repositories.WordsRepository;
+import com.example.genaibootcamp.tahir.langportal.langportal.services.StudyActivityService;
 import com.example.genaibootcamp.tahir.langportal.langportal.services.WordsService;
 
 @Configuration
@@ -60,4 +61,14 @@ public class DataSeeder {
             System.out.println("Updated word count for group with ID 1.");
         };
     }
+
+    @Bean
+    @Order(6)
+    CommandLineRunner seedStudyActivities(StudyActivityService studyActivityService) {
+        return args -> {
+            studyActivityService.seedStudyActivity("seed/study_activities.json");
+        };
+    }
+
+
 }
