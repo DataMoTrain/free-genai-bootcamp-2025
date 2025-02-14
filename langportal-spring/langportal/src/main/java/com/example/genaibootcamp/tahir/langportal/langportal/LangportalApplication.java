@@ -5,6 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.example.genaibootcamp.tahir.langportal.langportal.entities.Groups;
+import com.example.genaibootcamp.tahir.langportal.langportal.repositories.GroupsRepository;
+import com.example.genaibootcamp.tahir.langportal.langportal.services.WordsService;
+
 
 @SpringBootApplication
 public class LangportalApplication {
@@ -13,14 +17,28 @@ public class LangportalApplication {
 		SpringApplication.run(LangportalApplication.class, args);
 	}
 
-	// @Bean
-    // CommandLineRunner initDatabase(UserRepository userRepository) {
-    //     return args -> {
-    //         if (userRepository.count() == 0) {  // Only insert if database is empty
-    //             userRepository.save(new User("John Doe", "john@example.com"));
-    //             userRepository.save(new User("Jane Doe", "jane@example.com"));
-    //             System.out.println("Inserted sample users into database.");
-    //         }
-    //     };
-    // }
+	 @Bean
+    CommandLineRunner initDatabase(GroupsRepository groupsRepository) {
+        return args -> {
+            if (groupsRepository.count() == 0) {  // Only insert if database is empty
+                groupsRepository.save(new Groups("Core Verbs"));
+                groupsRepository.save(new Groups("Core Adjectives"));
+                System.out.println("Inserted sample groups into database.");
+            }
+        };
+    }
+//langportal\src\main\java\com\example\genaibootcamp\tahir\langportal\langportal\seed
+    @Bean
+    CommandLineRunner seedAdjectives(WordsService wordsService) {
+        return args -> {
+            wordsService.seedWordsData("seed/data_adjectives.json");
+        };
+    }
+
+    @Bean
+    CommandLineRunner seedVerbs(WordsService wordsService) {
+        return args -> {
+            wordsService.seedWordsData("seed/data_verbs.json");
+        }; //src/main/java/com/example/genaibootcamp/tahir/langportal/langportal/
+    }
 }

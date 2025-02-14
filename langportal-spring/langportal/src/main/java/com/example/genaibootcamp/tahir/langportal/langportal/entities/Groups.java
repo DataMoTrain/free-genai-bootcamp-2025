@@ -13,6 +13,14 @@ public class Groups {
     @Column(name = "name", nullable = false)
     private String name;
 
+     // Default constructor
+     public Groups() {}
+
+     // Constructor with name parameter
+     public Groups(String name) {
+         this.name = name;
+     }
+
     // Getters and Setters
     public Integer getId() {
         return id;

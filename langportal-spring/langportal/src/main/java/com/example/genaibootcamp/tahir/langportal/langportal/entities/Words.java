@@ -1,5 +1,7 @@
 package com.example.genaibootcamp.tahir.langportal.langportal.entities;
+
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "words")
 public class Words {
@@ -19,6 +21,17 @@ public class Words {
 
     @Column(name = "parts", columnDefinition = "json")
     private String parts;
+
+    // Default constructor
+    public Words() {}
+
+    // Constructor with parameters
+    public Words(String japanese, String romaji, String english, String parts) {
+        this.japanese = japanese;
+        this.romaji = romaji;
+        this.english = english;
+        this.parts = parts;
+    }
 
     // Getters and Setters
     public Integer getId() {
