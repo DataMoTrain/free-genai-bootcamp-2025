@@ -1,7 +1,7 @@
 package com.example.genaibootcamp.tahir.langportal.langportal.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "study_activities")
@@ -62,5 +62,4 @@ public class StudyActivities {
     public void setPreviewUrl(String previewUrl) {
         this.previewUrl = previewUrl;
     }
-
 }

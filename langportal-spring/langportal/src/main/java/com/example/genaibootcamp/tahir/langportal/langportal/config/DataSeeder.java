@@ -14,33 +14,33 @@ import com.example.genaibootcamp.tahir.langportal.langportal.services.WordsServi
 @Configuration
 public class DataSeeder {
 
-    @Bean
-    @Order(1)
-    CommandLineRunner initDatabase(GroupsRepository groupsRepository) {
-        return args -> {
-            if (groupsRepository.count() == 0) {  // Only insert if database is empty
-                groupsRepository.save(new Groups("Core Verbs"));
-                groupsRepository.save(new Groups("Core Adjectives"));
-                System.out.println("Inserted sample groups into database.");
-            }
-        };
-    }
+    // @Bean
+    // @Order(1)
+    // CommandLineRunner initDatabase(GroupsRepository groupsRepository) {
+    //     return args -> {
+    //         if (groupsRepository.count() == 0) {  // Only insert if database is empty
+    //             groupsRepository.save(new Groups("Core Verbs"));
+    //             groupsRepository.save(new Groups("Core Adjectives"));
+    //             System.out.println("Inserted sample groups into database.");
+    //         }
+    //     };
+    // }
 
-    @Bean
-    @Order(2)
-    CommandLineRunner seedAdjectives(WordsService wordsService, WordsRepository wordsRepository) {
-        return args -> {
-                wordsService.seedWordsData("seed/data_adjectives.json", 2);
-        };
-    }
+    // @Bean
+    // @Order(2)
+    // CommandLineRunner seedAdjectives(WordsService wordsService, WordsRepository wordsRepository) {
+    //     return args -> {
+    //             wordsService.seedWordsData("seed/data_adjectives.json", 2);
+    //     };
+    // }
 
-    @Bean
-    @Order(3)
-    CommandLineRunner seedVerbs(WordsService wordsService, WordsRepository wordsRepository) {
-        return args -> {
-                wordsService.seedWordsData("seed/data_verbs.json", 1);
-        };
-    }
+    // @Bean
+    // @Order(3)
+    // CommandLineRunner seedVerbs(WordsService wordsService, WordsRepository wordsRepository) {
+    //     return args -> {
+    //             wordsService.seedWordsData("seed/data_verbs.json", 1);
+    //     };
+    // }
 
     @Bean
     @Order(4)
@@ -69,6 +69,4 @@ public class DataSeeder {
             studyActivityService.seedStudyActivity("seed/study_activities.json");
         };
     }
-
-
 }
